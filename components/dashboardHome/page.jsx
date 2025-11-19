@@ -103,7 +103,7 @@ export default function DashboardHome () {
 
             {/* lattest admitted course  */}
             <div className='edn__h__courses__container'>
-              <div className='flex justify-between items-center mb-5'>
+              <div className=' flex justify-between md:justify-baseline md:gap-8 xl:gap-0 xl:justify-between items-center mb-5'>
                 <h3 className='edn__section__title'>Latest admitted course</h3>
                 <Link href='/dashboard/admitted-course'>
                   <p className='text-amber-300 cursor-pointer'>See all</p>
@@ -140,14 +140,14 @@ export default function DashboardHome () {
                     </div>
 
                     {/* button  */}
-                    <button className='edn__course__btn'>
+                    {/* <button className='edn__course__btn'>
                       {' '}
                       View Details{' '}
                       <span>
                         {' '}
                         <FaChevronRight />{' '}
                       </span>
-                    </button>
+                    </button> */}
                   </div>
                 ))}
               </div>
@@ -156,16 +156,16 @@ export default function DashboardHome () {
 
           <div className='bg-white rounded-xl  lg:px-6 py-10 px-3 lg:mt-0 mt-10'>
             {/* attendance */}
-            <div>
+            {/* <div>
               <h2 className='edn__section__title'>Class Attendance</h2>
               <div className='flex justify-center items-center my-10'>
                 <Circle value={32} max={100} />
               </div>
-            </div>
+            </div> */}
 
             {/* upcomming class schedule */}
             <div className=''>
-              <div className='flex justify-between items-center mb-5 '>
+              <div className='flex justify-between md:justify-baseline md:gap-8 xl:justify-between xl:gap-0 items-center mb-5 '>
                 <h2 className='edn__section__title'>Upcoming Classes</h2>
                 <Link href='/dashboard/class-schedule'>
                   <p className='text-[#FBBD08] cursor-pointer'>See all</p>
