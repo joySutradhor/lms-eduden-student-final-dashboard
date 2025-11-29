@@ -17,7 +17,7 @@ export default function LoginLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${WorkSans.className} antialiased bg-no-repeat h-screen bg-[#f7f5f5]`}
+        className={`${WorkSans.className} antialiased bg-no-repeat  bg-[#f7f5f5]`}
       >
         <Sidebar />
         {children}

@@ -35,6 +35,8 @@ export const useToken = () => {
             }
           );
 
+
+          console.log(response , "token response")
           // Token is valid
           console.log("Token is valid");
           setToken(storedToken);
