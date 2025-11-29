@@ -17,7 +17,7 @@ export default function ProfilePage() {
   const [token, userId] = useToken();
   const [data, setData] = useState(null);
   const [imagePreview, setImagePreview] = useState("");
-  
+
   const [form, setForm] = useState({
     full_name: "",
     contact_number: "",
@@ -141,8 +141,6 @@ export default function ProfilePage() {
   };
 
   const handleLogout = async () => {
-    
-
     const result = await Swal.fire({
       title: "Are you sure?",
       text: "You will be logged out from your account.",
@@ -157,6 +155,9 @@ export default function ProfilePage() {
       try {
         await axios.get("https://lmsapi.eduden.io/api/logout", {
           withCredentials: true,
+          headers: {
+            Authorization: `Token ${token}`,
+          },
         });
         localStorage.clear();
         Swal.fire("Logged Out!", "You have been logged out.", "success");
