@@ -17,6 +17,7 @@ export default function ProfilePage() {
   const [token, userId] = useToken();
   const [data, setData] = useState(null);
   const [imagePreview, setImagePreview] = useState("");
+  
   const [form, setForm] = useState({
     full_name: "",
     contact_number: "",
@@ -140,7 +141,7 @@ export default function ProfilePage() {
   };
 
   const handleLogout = async () => {
-    const router = useRouter();
+    
 
     const result = await Swal.fire({
       title: "Are you sure?",
