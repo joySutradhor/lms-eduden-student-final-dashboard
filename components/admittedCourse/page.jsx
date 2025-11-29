@@ -88,7 +88,7 @@ export default function AdmittedCourse () {
                   <div key={i} className='edn__h__course__item'>
                     <img
                       src={course?.course_thumbnail}
-                      className='rounded mb-3 w-full'
+                      className='rounded mb-3 w-full h-[25vh]  lg:h-[30vh] xl:h-[20vh] object-cover'
                     ></img>
                     <button className='edn__tooltip'>{course?.status}</button>
                     <h3 className='edn__title__heading'>
