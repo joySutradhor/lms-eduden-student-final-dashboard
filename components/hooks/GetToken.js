@@ -13,43 +13,45 @@ export const useToken = () => {
 
   useEffect(() => {
     const verifyToken = async () => {
-      if (typeof window !== "undefined") {
-        const storedToken = localStorage.getItem("token");
-        const storedUserId = localStorage.getItem("userId");
+      if (typeof window === "undefined") return;
 
-        if (!storedToken) {
-          setIsLoading(false);
-          router.push("/login");
-          return;
-        }
+      const storedToken = localStorage.getItem("token");
+      const storedUserId = localStorage.getItem("userId");
 
-        // Verify token via API using axios
-        try {
-          const response = await axios.post(
-            "https://lmsapi.eduden.io/api/verify-token/",
-            { token: storedToken },
-            {
-              headers: {
-                "Content-Type": "application/json",
-              },
-            }
-          );
+      if (!storedToken) {
+        setIsLoading(false);
+        router.push("/login");
+        return;
+      }
 
+      try {
+        const response = await axios.post(
+          "https://lmsapi.eduden.io/api/verify-token/",
+          { token: storedToken },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
-          console.log(response , "token response")
-          // Token is valid
+        // Check if token is valid based on API response
+        if (response.data?.result) {
           console.log("Token is valid");
           setToken(storedToken);
           setUserId(storedUserId);
           setIsValid(true);
-        } catch (error) {
-          // Token is invalid or API error
-          console.log("Token is invalid or verification failed");
+        } else {
+          console.log("Token is invalid");
           localStorage.clear();
           router.push("/login");
-        } finally {
-          setIsLoading(false);
         }
+      } catch (error) {
+        console.error("Token verification failed:", error);
+        localStorage.clear();
+        router.push("/login");
+      } finally {
+        setIsLoading(false);
       }
     };
 
