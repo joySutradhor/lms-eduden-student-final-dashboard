@@ -43,8 +43,7 @@ export const useToken = () => {
         } catch (error) {
           // Token is invalid or API error
           console.log("Token is invalid or verification failed");
-          localStorage.removeItem("token");
-          localStorage.removeItem("userId");
+          localStorage.clear();
           router.push("/login");
         } finally {
           setIsLoading(false);
